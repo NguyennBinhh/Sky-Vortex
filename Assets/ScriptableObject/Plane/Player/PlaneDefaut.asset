@@ -18,3 +18,4 @@ MonoBehaviour:
   price: 0
   maxHP: 100
   damage: 10
+  fireRate: 0.2

@@ -20,6 +20,7 @@ public class ObjectPolling : MonoBehaviour
             GameObject obj = Instantiate(this._prefabobj);
             obj.SetActive(false);
             this._pooling.Enqueue(obj);
+            obj.transform.position = Vector3.zero;
         }
     }
 
@@ -44,7 +45,9 @@ public class ObjectPolling : MonoBehaviour
     {
         this._pooling.Enqueue(obj);
         obj.SetActive(false);
-    }    
+        obj.transform.position = Vector3.zero;
+    }
+}    
         
 
-}
+

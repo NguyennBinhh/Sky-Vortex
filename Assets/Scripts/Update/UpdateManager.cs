@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class UpdateManager : MonoBehaviour
@@ -15,6 +15,7 @@ public class UpdateManager : MonoBehaviour
         }
         _observer.AddRange(_pendingObserver);
         _pendingObserver.Clear();
+        Debug.Log(_observer.Count);
     }
 
     public static void RegisterObserver(IUpdateObserver observer)
@@ -22,9 +23,16 @@ public class UpdateManager : MonoBehaviour
         _pendingObserver.Add(observer);
     }
 
-    public static void UnRegisterObserver(IUpdateObserver obsever)
+    public static void UnRegisterObserver(IUpdateObserver observer)
     {
-        _observer.Remove(obsever);
-        currentIndex--;
+        if (_observer.Contains(observer))
+        {
+            _observer.Remove(observer);
+            currentIndex--;
+        }
+        if (_pendingObserver.Contains(observer))
+        {
+            _pendingObserver.Remove(observer);
+        }
     }
 }
