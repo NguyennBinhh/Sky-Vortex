@@ -15,7 +15,6 @@ public class UpdateManager : MonoBehaviour
         }
         _observer.AddRange(_pendingObserver);
         _pendingObserver.Clear();
-        Debug.Log(_observer.Count);
     }
 
     public static void RegisterObserver(IUpdateObserver observer)

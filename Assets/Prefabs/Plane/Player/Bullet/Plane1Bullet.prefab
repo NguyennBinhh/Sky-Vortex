@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7345119141267571361}
   - component: {fileID: 5404090272281510410}
   - component: {fileID: 7556590229137541494}
+  - component: {fileID: 7856300200840837149}
   m_Layer: 0
   m_Name: Plane1Bullet
   m_TagString: Projectile
@@ -185,3 +186,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+--- !u!114 &7856300200840837149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2542336926387563599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112c98412015b654ebe7dae1d684e33f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
