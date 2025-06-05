@@ -5,25 +5,34 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IDamagerable
 {
     [SerializeField] private EnemyPlanrData _enemyData;
+    [SerializeField] private Animator _animator;
+
+    private void Awake()
+    {
+        this._animator = GetComponent<Animator>();
+    }
 
     private bool IsDie = false;
     public void TakeDamage(int amout)
     {
         if(this._enemyData.maxHP <= 0)
         {
-            this.EnemyDie();
+            if (!IsDie)
+                StartCoroutine(this.EnemyDie());
         }
         else
         {
+            
             this._enemyData.maxHP -= amout;
         }
     }
 
-    void EnemyDie()
+    IEnumerator EnemyDie()
     {
-        if (this.IsDie) return;
-        Debug.Log("HI");
+        this._animator.SetTrigger("EnemyDie");
         this.IsDie = true;
+        yield return new WaitForSeconds(0.2f);
+        Destroy(gameObject);
     }
         
         
